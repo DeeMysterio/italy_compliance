@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include italy_compliance *.css
+recursive-include italy_compliance *.csv
+recursive-include italy_compliance *.html
+recursive-include italy_compliance *.ico
+recursive-include italy_compliance *.js
+recursive-include italy_compliance *.json
+recursive-include italy_compliance *.md
+recursive-include italy_compliance *.png
+recursive-include italy_compliance *.py
+recursive-include italy_compliance *.svg
+recursive-include italy_compliance *.txt
+recursive-exclude italy_compliance *.pyc
