@@ -1,6 +1,6 @@
 ## Italy Compliance
 
-app to include lo compliance in Italy
+App built on top of ERPNext to include Italy specific code of ERPNext.
 
 #### License
 
