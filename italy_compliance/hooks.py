@@ -32,6 +32,12 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+
+doctype_js = {
+	"Sales Invoice" : "public/js/sales_invoice.js"
+	}
+
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -66,7 +72,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "italy_compliance.install.before_install"
-# after_install = "italy_compliance.install.after_install"
+after_install = "italy_compliance.install.after_install"
 
 # Uninstallation
 # ------------
@@ -112,6 +118,29 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	"Sales Invoice": {
+		"on_submit": [
+			"italy_compliance.utils.sales_invoice_on_submit",
+		],
+		"on_cancel": [
+			"italy_compliance.utils.sales_invoice_on_cancel",
+		]
+	},
+	'Address': {
+		'validate': [
+			'italy_compliance.utils.set_state_code',
+		],
+	},
+}
+
+
+regional_overrides = {
+	'Italy': {
+		'erpnext.controllers.taxes_and_totals.update_itemised_tax_data': 'italy_compliance.utils.update_itemised_tax_data',
+		'erpnext.controllers.accounts_controller.validate_regional': 'italy_compliance.utils.sales_invoice_validate',
+	}
+}
 # Scheduled Tasks
 # ---------------
 
